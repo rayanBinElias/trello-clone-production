@@ -1,0 +1,17 @@
+services:
+  mongodb:
+    container_name: trello-mongo
+    image: mongo:4.4-bionic
+    volumes:
+      - trello-db:/data/db
+    ports:
+      - 27017:27017
+    networks:
+      - trello-app
+
+networks:
+  trello-app:
+    driver: bridge
+
+volumes:
+  trello-db:
